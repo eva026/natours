@@ -20,6 +20,11 @@ router.post(
   viewsController.getUpdatedUser
 );
 
-router.get('/my-tours', authController.protect, viewsController.getMyTours);
+router.get(
+  '/my-tours',
+  // bookingController.createBookingCheckout,
+  authController.protect,
+  viewsController.getMyTours
+);
 
 module.exports = router;
