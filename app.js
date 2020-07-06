@@ -15,7 +15,7 @@ const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
-const bookingController = require('./routes/bookingController');
+const bookingController = require('./controllers/bookingController');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
@@ -55,6 +55,7 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
+// Stripe webhook, before body-parser, because stripe needs the body as string
 app.post(
   '/webhook-checkout',
   express.raw({ type: 'application/json' }),
