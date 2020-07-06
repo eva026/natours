@@ -53,14 +53,15 @@ const createBookingCheckout = async (session) => {
   // Get tour, user and price
   const tour = session.client_reference_id;
   const user = (await User.findOne({ email: session.customer_email })).id;
-  const price = session.line_items[0].amount / 100;
+  const price = session.display_items[0].amount / 100;
 
   // Create booking
   await Booking.create({ tour, user, price });
 };
+
 exports.webhookCheckout = (req, res, next) => {
   // Get stripe signature
-  const signature = req.headers('stripe-signature');
+  const signature = req.headers['stripe-signature'];
 
   // Event
   let event;
