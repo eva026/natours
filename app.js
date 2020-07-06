@@ -20,6 +20,9 @@ const globalErrorHandler = require('./controllers/errorController');
 // Start express app
 const app = express();
 
+// Trust heroku proxy
+app.enable('trust proxy');
+
 // Global Middlewares
 
 app.set('view engine', 'pug');
