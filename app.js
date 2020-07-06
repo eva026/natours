@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -23,10 +24,17 @@ const app = express();
 // Trust heroku proxy
 app.enable('trust proxy');
 
-// Global Middlewares
-
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+// Global Middlewares
+
+// Implement Cors
+app.use(cors());
+// Access-Control-Allow-Origin *
+
+app.options('*', cors());
+app.options('/api/v1/tours/:id', cors());
+
 // Serve static file
 app.use(express.static(path.join(__dirname, 'public')));
 
