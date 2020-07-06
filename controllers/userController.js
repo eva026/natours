@@ -65,8 +65,6 @@ exports.createUser = (req, res) => {
 };
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-  console.log(req.body);
-  console.log(req.file);
   // 1) Create error if use posted password
   if (req.body.password || req.body.passwordConfirm) {
     return next(

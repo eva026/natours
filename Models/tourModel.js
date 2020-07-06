@@ -151,7 +151,7 @@ tourSchema.pre('save', function (next) {
 // });
 
 // tourSchema.post('save', function (doc, next) {
-//   console.log(doc);
+//   .log(doc);
 //   next();
 // });
 
@@ -163,10 +163,10 @@ tourSchema.pre(/^find/, function (next) {
   next();
 });
 
-tourSchema.post(/^find/, function (docs, next) {
-  console.log(`It takes ${Date.now() - this.start} milliseconds.`);
-  next();
-});
+// tourSchema.post(/^find/, function (docs, next) {
+//   console.log(`It takes ${Date.now() - this.start} milliseconds.`);
+//   next();
+// });
 
 tourSchema.pre(/^find/, function (next) {
   this.populate({
