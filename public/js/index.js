@@ -4,7 +4,7 @@ import '@babel/polyfill';
 
 import { login, logout } from './login';
 import { displayMap } from './mapbox';
-import { showAlert } from './mapbox';
+import { showAlert } from './alerts';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
 
