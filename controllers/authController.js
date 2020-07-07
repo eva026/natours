@@ -5,7 +5,6 @@ const { promisify } = require('util');
 const User = require('../Models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
-const errorController = require('./errorController');
 const Email = require('../utils/email');
 
 const signToken = (id) =>
@@ -40,10 +39,6 @@ exports.signup = catchAsync(async (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
-    passwordChangedAt: req.body.passwordChangedAt,
-    role: req.body.role,
-    passwordResetToken: req.body.passwordResetToken,
-    passwordResetExpires: req.body.tokenExpiredAt,
   });
 
   const url = `${req.protocol}://${req.get('host')}/me`;
