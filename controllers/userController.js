@@ -16,7 +16,7 @@ const factory = require('./handlerFactory');
 //   },
 // });
 
-const multerFiletr = (req, file, cb) => {
+const multerFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image')) {
     cb(null, true);
   } else {
@@ -26,7 +26,7 @@ const multerFiletr = (req, file, cb) => {
 
 const upload = multer({
   storage: multer.memoryStorage(),
-  fileFilter: multerFiletr,
+  fileFilter: multerFilter,
 });
 
 exports.uploadUserPhoto = upload.single('photo');

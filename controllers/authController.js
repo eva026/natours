@@ -7,10 +7,11 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const Email = require('../utils/email');
 
-const signToken = (id) =>
-  jwt.sign({ id }, process.env.JWT_SECRET, {
+const signToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
+};
 
 const createSendToken = (user, statusCode, req, res) => {
   const token = signToken(user._id);
@@ -24,7 +25,9 @@ const createSendToken = (user, statusCode, req, res) => {
     secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
   });
 
+  // Remove password from output
   user.password = undefined;
+
   res.status(statusCode).json({
     status: 'success',
     token,
