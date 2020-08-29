@@ -19,7 +19,7 @@ The Natours App is a tours app, where users can browse and book tours.
 
 ## Screenshots
 
-![Example screenshot](./images/screenshot.jpg)
+![Example screenshot](./images/screenshot.png)
 
 ## Technologies
 
@@ -41,14 +41,14 @@ Show examples of usage:
 
 List of features ready and TODOs for future development
 
-- Create post
-- Post comment
-- Vote up & vote down
+- View all tours
+- View tour details
+- Book tour
 
 To-do list:
 
-- Search function
-- Community page
+- Sign up form
+- Create review
 
 ## Status
 
@@ -56,7 +56,7 @@ Project is: _in progress_, and will add more amazing features
 
 ## Inspiration
 
-Add here credits. Project inspired by Jonas Schmedtmann, based on his course: "Node.js, Express, MongoDB & More: The Complete Bootcamp 2020".
+Add here credits. Project inspired by Jonas Schmedtmann, created on his course: "Node.js, Express, MongoDB & More: The Complete Bootcamp 2020".
 
 ## Contact
 
